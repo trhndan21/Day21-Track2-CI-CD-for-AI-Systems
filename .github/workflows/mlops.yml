@@ -80,11 +80,13 @@ jobs:
         env:
           CLOUD_BUCKET: ${{ secrets.CLOUD_BUCKET }}
 
-      - name: Save metrics as artifact
+      - name: Save metrics and report as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: metrics
-          path: outputs/metrics.json
+          name: performance-report
+          path: |
+            outputs/metrics.json
+            outputs/report.txt
 
   eval:
     name: Eval
